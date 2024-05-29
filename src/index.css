@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.link-animated-underline::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 8px;
+    width: 0px;
+    height: 2px;
+    background: #2A2D34;
+    transition: all 0.45s;
+}
+
+.link-animated-underline:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.text-orange.link-animated-underline::after {
+    background: #F4A261;
+}
+
+.strong-title {
+    color: #F4A261;
+}
+
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
