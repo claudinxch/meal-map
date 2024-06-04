@@ -4,8 +4,11 @@ import { RecipeCard } from './recipe-card'
 import { Container } from './container'
 import { Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
+import { useRecipeData } from '../hooks/useRecipeData'
 
 export const RecipeList = (props) => {
+  const { data, isLoading, isError } = useRecipeData()
+
   return (
     <div className="w-full bg-white">
       <Container>
@@ -22,9 +25,30 @@ export const RecipeList = (props) => {
         </div>
         <div className="flex gap-2 flex-wrap justify-center lg:flex-nowrap lg:justify-between">
           {/* if screen small(lenght = 4) */}
-          {Array.from({ length: 6 }).map((_, index) => (
+          {/* {Array.from({ length: 6 }).map((_, index) => (
             <RecipeCard key={index} />
-          ))}
+          ))} */}
+          {/* props.title.toLowerCase() === 'cuisines' && (
+            
+          ) */}
+          {!isLoading && (
+            <>
+              {data?.data.map((data) => (
+                <RecipeCard
+                  key={data.id}
+                  title={data.title}
+                  pictureUrl={data.image}
+                  servings={data.servings}
+                  minutes={data.readyInMinutes}
+                  dishType={
+                    data.dishTypes.length === 0 ? 'yummy' : data.dishTypes[0]
+                  }
+                />
+              ))}
+            </>
+          )}
+          {isLoading && <p>carregando</p>}
+          {isError && <p>erro!</p>}
         </div>
       </Container>
     </div>
