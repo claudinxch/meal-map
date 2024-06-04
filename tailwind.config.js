@@ -1,25 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}"
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
-        green: "#00632A", /** #00843C */
-        orange: "#F4A261",
-        lightGray: "#F5F7FA",
-        darkGray: "#2A2D34"
-      }
+        blue: '#0077B6' /** #00843C #00632A */,
+        yellow: '#FFB703' /** #F4A261 */,
+        lightGray: '#F5F7FA',
+        darkGray: '#232528',
+      },
     },
     fontFamily: {
-      primary: ["Plus Jakarta Sans"],
+      primary: ['Plus Jakarta Sans'],
       secondary: ['"Open Sans"'],
-      tertiary: ["Bebas Neue"],
-      fourth: ["Manrope"]
+      tertiary: ['Bebas Neue'],
+      fourth: ['Manrope'],
     },
   },
   plugins: [],
 }
-
